@@ -13,16 +13,18 @@
             font-family: 'Poppins', sans-serif;
             background-color: #f4f4f9;
             color: #333;
+            line-height: 1.6;
         }
 
         /* Header Styling */
         header {
-            background-color: #333;
+            background-color: #222;
             color: #fff;
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         nav {
@@ -54,10 +56,11 @@
             color: #fff;
             text-decoration: none;
             font-weight: 600;
+            transition: color 0.3s;
         }
 
         nav ul li a:hover {
-            text-decoration: underline;
+            color: #f4b400;
         }
 
         /* Hero Section */
@@ -78,12 +81,13 @@
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
+            font-weight: 700;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 2rem;
         }
 
@@ -94,6 +98,7 @@
             text-decoration: none;
             border-radius: 5px;
             font-weight: 600;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .btn:hover {
@@ -104,42 +109,55 @@
 
         /* About Section */
         .about {
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
             text-align: center;
             background-color: #fff;
         }
 
         .about h2 {
-            margin-bottom: 1rem;
-            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
             color: #333;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
         }
 
         /* Services Section */
         .services {
             background-color: #f4f4f9;
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
             text-align: center;
         }
 
         .services h2 {
             margin-bottom: 2rem;
-            font-size: 2rem;
+            font-size: 2.5rem;
         }
 
         .service-cards {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .service-card {
             background-color: #fff;
-            padding: 1.5rem;
+            padding: 2rem;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             width: 300px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
         .service-card h3 {
@@ -153,21 +171,23 @@
 
         /* Contact Section */
         .contact {
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
             text-align: center;
             background-color: #fff;
         }
 
         .contact h2 {
             margin-bottom: 1.5rem;
+            font-size: 2.5rem;
         }
 
         .contact-info {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .contact-info p {
             margin: 0.5rem 0;
+            font-size: 1.1rem;
         }
 
         .social-media {
@@ -179,11 +199,16 @@
         .social-media a img {
             width: 40px;
             height: 40px;
+            transition: transform 0.3s;
+        }
+
+        .social-media a img:hover {
+            transform: scale(1.1);
         }
 
         /* Footer Styling */
         footer {
-            background-color: #333;
+            background-color: #222;
             color: #fff;
             text-align: center;
             padding: 1rem 0;
@@ -205,31 +230,31 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Welcome to Cyber Lhotse</h1>
-            <p>Secure your digital world with our cutting-edge solutions</p>
-            <a href="#services" class="btn">Discover More</a>
+            <h1>Innovating the Future</h1>
+            <p>Empowering businesses through technology and digital transformation</p>
+            <a href="#services" class="btn">Our Services</a>
         </div>
     </section>
 
     <section id="about" class="about">
         <h2>About Us</h2>
-        <p>At Cyber Lhotse, we specialize in providing top-notch cybersecurity solutions to protect your business and personal data. Our team of experts is dedicated to ensuring that you stay safe in an ever-evolving digital landscape.</p>
+        <p>Cyber Lhotse is a technology-driven company that provides innovative solutions in various domains including digitization, software development, and artificial intelligence. Our mission is to enable organizations to leverage the power of technology for enhanced efficiency, growth, and transformation.</p>
     </section>
 
     <section id="services" class="services">
         <h2>Our Services</h2>
         <div class="service-cards">
             <div class="service-card">
-                <h3>Network Security</h3>
-                <p>We offer comprehensive network security services to protect your infrastructure from threats.</p>
+                <h3>Data Science & AI</h3>
+                <p>Unlock the potential of your data with our advanced analytics and artificial intelligence solutions, tailored to drive insights and innovation.</p>
             </div>
             <div class="service-card">
-                <h3>Data Protection</h3>
-                <p>Our data protection services ensure the confidentiality and integrity of your sensitive information.</p>
+                <h3>Software Development</h3>
+                <p>We offer comprehensive software development services, from concept to deployment, ensuring scalable and robust applications.</p>
             </div>
             <div class="service-card">
-                <h3>Security Consulting</h3>
-                <p>Get expert advice and strategies to bolster your security posture and prevent breaches.</p>
+                <h3>Digital Transformation</h3>
+                <p>Transform your business with our digital solutions, streamlining processes and integrating the latest technologies for a competitive edge.</p>
             </div>
         </div>
     </section>
@@ -237,8 +262,8 @@
     <section id="contact" class="contact">
         <h2>Contact Us</h2>
         <div class="contact-info">
-            <p><strong>Address:</strong> 1234 Cyber Lane, Tech City, World</p>
-            <p><strong>Email:</strong> contact@cyberlhotse.com</p>
+            <p><strong>Address:</strong> 1234 Tech Avenue, Innovation City, World</p>
+            <p><strong>Email:</strong> info@cyberlhotse.com</p>
             <p><strong>Phone:</strong> +123 456 7890</p>
         </div>
         <div class="social-media">
