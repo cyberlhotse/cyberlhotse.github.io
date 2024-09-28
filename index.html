@@ -14,6 +14,7 @@
             background-color: #f4f4f9;
             color: #333;
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
         /* Header Styling */
@@ -37,8 +38,14 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f4b400;
+            transition: color 0.3s;
+        }
+
+        .logo:hover {
+            color: #f4f4f9;
         }
 
         nav ul {
@@ -65,7 +72,7 @@
 
         /* Hero Section */
         .hero {
-            background: url('hero-image.jpg') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-image.jpg') no-repeat center center/cover;
             color: #fff;
             height: 100vh;
             display: flex;
@@ -75,19 +82,24 @@
         }
 
         .hero-content {
-            background-color: rgba(0, 0, 0, 0.7);
             padding: 2rem;
             border-radius: 10px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
             font-weight: 700;
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 2rem;
         }
 
@@ -99,6 +111,7 @@
             border-radius: 5px;
             font-weight: 600;
             transition: background-color 0.3s, color 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .btn:hover {
@@ -112,12 +125,26 @@
             padding: 4rem 2rem;
             text-align: center;
             background-color: #fff;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .about h2 {
             margin-bottom: 1.5rem;
             font-size: 2.5rem;
             color: #333;
+            position: relative;
+            display: inline-block;
+        }
+
+        .about h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: #f4b400;
+            display: block;
+            margin: 0.5rem auto;
+            border-radius: 2px;
         }
 
         .about p {
@@ -137,11 +164,23 @@
         .services h2 {
             margin-bottom: 2rem;
             font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .services h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: #f4b400;
+            display: block;
+            margin: 0.5rem auto;
+            border-radius: 2px;
         }
 
         .service-cards {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             flex-wrap: wrap;
             gap: 1.5rem;
         }
@@ -167,6 +206,7 @@
 
         .service-card p {
             font-size: 1rem;
+            line-height: 1.6;
         }
 
         /* Contact Section */
@@ -174,11 +214,25 @@
             padding: 4rem 2rem;
             text-align: center;
             background-color: #fff;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .contact h2 {
             margin-bottom: 1.5rem;
             font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: #f4b400;
+            display: block;
+            margin: 0.5rem auto;
+            border-radius: 2px;
         }
 
         .contact-info {
@@ -213,6 +267,46 @@
             text-align: center;
             padding: 1rem 0;
         }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about h2,
+            .services h2,
+            .contact h2 {
+                font-size: 2rem;
+            }
+
+            .service-card {
+                width: 100%;
+                margin: 0 0 1.5rem;
+            }
+
+            .contact-info p {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -232,49 +326,3 @@
         <div class="hero-content">
             <h1>Innovating the Future</h1>
             <p>Empowering businesses through technology and digital transformation</p>
-            <a href="#services" class="btn">Our Services</a>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <h2>About Us</h2>
-        <p>Cyber Lhotse is a technology-driven company that provides innovative solutions in various domains including digitization, software development, and artificial intelligence. Our mission is to enable organizations to leverage the power of technology for enhanced efficiency, growth, and transformation.</p>
-    </section>
-
-    <section id="services" class="services">
-        <h2>Our Services</h2>
-        <div class="service-cards">
-            <div class="service-card">
-                <h3>Data & Insights</h3>
-                <p>Unlock the potential of your data with our expertise in analytics and artificial intelligence. We provide tailored solutions to transform data into actionable insights.</p>
-            </div>
-            <div class="service-card">
-                <h3>Custom Solutions</h3>
-                <p>From conceptualization to deployment, we deliver software solutions designed to meet your unique business requirements, ensuring scalability and performance.</p>
-            </div>
-            <div class="service-card">
-                <h3>Digital Innovation</h3>
-                <p>Embrace the future with our digital transformation services. We help you integrate the latest technologies and streamline processes for a more agile and competitive business.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <div class="contact-info">
-            <p><strong>Address:</strong> Kathmandu, Nepal</p>
-            <p><strong>Email:</strong> hello@cyberlhotse.com</p>
-            <p><strong>Phone:</strong> +977-9842466514</p>
-        </div>
-        <div class="social-media">
-            <a href="https://www.facebook.com/cyberlhotse"><img src="docs/images/FB.png" alt="Facebook"></a>
-            <a href="https://x.com/cyberlhotse"><img src="docs/images/X.png" alt="Twitter"></a>
-            <a href="https://www.linkedin.com/company/cyberlhotse/about/"><img src="docs/images/LN.png" alt="LinkedIn"></a>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Cyber Lhotse. All rights reserved.</p>
-    </footer>
-</body>
-</html>
