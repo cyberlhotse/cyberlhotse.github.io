@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Lhotse</title>
+<meta name="description" content="Cyber Lhotse — IT services held at altitude.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:        #090C10;
+    --panel:      #0E141B;
+    --line:       #1E2731;
+    --glacier:    #0A3D62;
+    --ice:        #8FD3E8;
+    --snow:       #EDF1F5;
+    --stone:      #66707C;
+
+    --display: 'Space Grotesk', sans-serif;
+    --body:    'Inter', sans-serif;
+    --mono:    'JetBrains Mono', monospace;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--ink);
+    color:var(--snow);
+    font-family:var(--body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{ color:inherit; }
+
+  :focus-visible{
+    outline:1px solid var(--ice);
+    outline-offset:4px;
+  }
+
+  /* ---------- HERO ---------- */
+
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    padding:2rem;
+    text-align:center;
+  }
+
+  .topo{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+  }
+
+  .topo svg{
+    position:absolute;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:min(1600px, 220vw);
+    height:auto;
+  }
+
+  .topo path{
+    fill:none;
+    stroke-width:1;
+    stroke-dasharray:2400;
+    stroke-dashoffset:2400;
+    animation:draw 2.6s ease forwards;
+  }
+
+  .topo path:nth-child(1){ stroke:var(--ice); opacity:.55; animation-delay:.1s; }
+  .topo path:nth-child(2){ stroke:var(--stone); opacity:.42; animation-delay:.25s; }
+  .topo path:nth-child(3){ stroke:var(--stone); opacity:.36; animation-delay:.4s; }
+  .topo path:nth-child(4){ stroke:var(--stone); opacity:.30; animation-delay:.55s; }
+  .topo path:nth-child(5){ stroke:var(--stone); opacity:.24; animation-delay:.7s; }
+  .topo path:nth-child(6){ stroke:var(--stone); opacity:.18; animation-delay:.85s; }
+
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+
+  .hero-inner{ position:relative; z-index:1; }
+
+  .mark{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(2.2rem, 7vw, 5rem);
+    letter-spacing:.02em;
+    line-height:1;
+  }
+
+  .mark span{ color:var(--ice); }
+
+  .tagline{
+    margin-top:1.1rem;
+    font-family:var(--mono);
+    font-size:clamp(.75rem, 1.4vw, .95rem);
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--stone);
+  }
+
+  .scroll-cue{
+    position:absolute;
+    bottom:2.4rem;
+    left:50%;
+    transform:translateX(-50%);
+    width:1px;
+    height:46px;
+    background:linear-gradient(var(--ice), transparent);
+    opacity:.5;
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+
+  @keyframes pulse{ 0%,100%{ opacity:.15; } 50%{ opacity:.6; } }
+
+  /* ---------- INTRO ---------- */
+
+  .intro{
+    max-width:640px;
+    margin:0 auto;
+    padding:7rem 2rem;
+    text-align:center;
+  }
+
+  .intro p{
+    font-size:clamp(1.05rem, 2vw, 1.25rem);
+    font-weight:400;
+    color:#C7CED6;
+  }
+
+  /* ---------- ROUTE / SERVICES ---------- */
+
+  .route{
+    max-width:760px;
+    margin:0 auto;
+    padding:2rem 2rem 8rem;
+  }
+
+  .route-label{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--stone);
+    margin-bottom:3rem;
+    padding-left:2.4rem;
+  }
+
+  .camps{
+    list-style:none;
+    border-left:1px solid var(--line);
+    margin-left:.4rem;
+  }
+
+  .camp{
+    position:relative;
+    padding:0 0 3.6rem 2.4rem;
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+
+  .camp.in-view{ opacity:1; transform:translateY(0); }
+
+  .camp:last-child{ padding-bottom:0; }
+
+  .camp::before{
+    content:'';
+    position:absolute;
+    left:-4.5px;
+    top:.5rem;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--ink);
+    border:1px solid var(--stone);
+    transition:background .3s ease, border-color .3s ease, box-shadow .3s ease;
+  }
+
+  .camp:hover::before{
+    border-color:var(--ice);
+    background:var(--ice);
+    box-shadow:0 0 12px 1px rgba(143,211,232,.6);
+  }
+
+  .elevation{
+    display:block;
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.1em;
+    color:var(--stone);
+    margin-bottom:.6rem;
+  }
+
+  .camp h3{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:1.5rem;
+    margin-bottom:.5rem;
+    transition:color .3s ease;
+  }
+
+  .camp:hover h3{ color:var(--ice); }
+
+  .camp p{
+    color:#9AA4B0;
+    font-size:.98rem;
+    max-width:46ch;
+  }
+
+  /* ---------- FOOTER ---------- */
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:4rem 2rem 3rem;
+    text-align:center;
+  }
+
+  footer .mark{
+    font-size:1.05rem;
+    margin-bottom:1.4rem;
+  }
+
+  footer .contact{
+    font-family:var(--mono);
+    font-size:.85rem;
+    color:var(--ice);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease;
+  }
+
+  footer .contact:hover{ border-color:var(--ice); }
+
+  footer .discretion{
+    margin-top:1.2rem;
+    font-size:.82rem;
+    color:var(--stone);
+  }
+
+  footer .copyright{
+    margin-top:2.2rem;
+    font-size:.72rem;
+    color:#3C4552;
+    letter-spacing:.05em;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .topo path{ animation:none; stroke-dashoffset:0; }
+    .scroll-cue{ animation:none; }
+    .camp{ transition:none; opacity:1; transform:none; }
+  }
+
+  @media (max-width:600px){
+    .route-label{ padding-left:1.8rem; }
+    .camp{ padding-left:1.8rem; padding-bottom:3rem; }
+  }
+
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="topo" aria-hidden="true">
+    <svg viewBox="0 0 1600 700" preserveAspectRatio="xMidYMax meet">
+      <path d="M700,160 L730,120 L742,135 L760,110 L780,140 L810,118 L830,150" />
+      <path d="M640,230 L680,190 L700,205 L730,175 L760,200 L790,180 L820,210 L860,220 L890,235" />
+      <path d="M580,300 L620,270 L650,285 L690,250 L720,275 L760,255 L800,280 L840,260 L880,290 L920,300 L950,320" />
+      <path d="M520,380 L560,350 L600,365 L640,335 L680,360 L720,340 L760,365 L800,345 L840,370 L880,350 L920,375 L960,390 L1000,405 L1030,420" />
+      <path d="M460,460 L500,430 L540,445 L580,415 L620,440 L660,420 L700,445 L740,425 L780,450 L820,430 L860,455 L900,435 L940,460 L980,480 L1020,495 L1060,510 L1090,525" />
+      <path d="M380,560 L420,530 L460,545 L500,515 L540,540 L580,520 L620,545 L660,525 L700,550 L740,530 L780,555 L820,535 L860,560 L900,540 L940,565 L980,545 L1020,570 L1060,580 L1100,600 L1140,615 L1180,630" />
+    </svg>
+  </div>
+  <div class="hero-inner">
+    <div class="mark">CYBER<span>LHOTSE</span></div>
+    <p class="tagline">IT services, held at altitude</p>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"></div>
+</header>
+
+<section class="intro">
+  <p>We operate behind the infrastructure of organizations that cannot afford to be visible for the wrong reasons — securing, watching, and maintaining the systems they depend on.</p>
+</section>
+
+<section class="route" aria-label="Services">
+  <span class="route-label">The Route</span>
+  <ol class="camps">
+    <li class="camp">
+      <span class="elevation">5,364M</span>
+      <h3>Base Camp</h3>
+      <p>Trained, briefed, and kept aware — long before the storm arrives.</p>
+    </li>
+    <li class="camp">
+      <span class="elevation">6,065M</span>
+      <h3>Camp I</h3>
+      <p>What we build here isn't canvas and rope — it's written, tested, and built to hold real weight.</p>
+    </li>
+    <li class="camp">
+      <span class="elevation">6,400M</span>
+      <h3>Camp II</h3>
+      <p>Every system kept running, supplied, and measured against risk and compliance — not left to chance.</p>
+    </li>
+    <li class="camp">
+      <span class="elevation">7,890M</span>
+      <h3>South Col</h3>
+      <p>The most exposed point on the mountain — secured and guarded, 24/7.</p>
+    </li>
+  </ol>
+</section>
+
+<footer>
+  <div class="mark">CYBER<span>LHOTSE</span></div>
+  <a class="contact" href="mailto:hello@cyberlhotse.com">hello@cyberlhotse.com</a>
+  <p class="discretion">Inquiries by direct contact only.</p>
+  <p class="copyright">© 2026 CYBER LHOTSE</p>
+</footer>
+
+<script>
+  const camps = document.querySelectorAll('.camp');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting){
+          e.target.classList.add('in-view');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: .2 });
+    camps.forEach(c => io.observe(c));
+  } else {
+    camps.forEach(c => c.classList.add('in-view'));
+  }
+</script>
+
+</body>
+</html>
